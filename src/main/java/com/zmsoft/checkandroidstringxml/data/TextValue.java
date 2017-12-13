@@ -23,6 +23,18 @@ public class TextValue {
         }
     }
 
+    public String getZh() {
+        return zh;
+    }
+
+    public String getEn() {
+        return en;
+    }
+
+    public String getTw() {
+        return tw;
+    }
+
     @Override
     public String toString() {
         return "TextValue{" +

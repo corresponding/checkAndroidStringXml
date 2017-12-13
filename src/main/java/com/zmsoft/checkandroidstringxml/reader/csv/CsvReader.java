@@ -21,12 +21,7 @@ public class CsvReader {
     private TreeMap<String, TextValue> textValueMap;
 
     public CsvReader(String fileName) {
-        textValueMap = new TreeMap<>(new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.compareTo(o2);
-            }
-        });
+        textValueMap = new TreeMap<>(String::compareTo);
         parseCsvFile(fileName);
     }
 
@@ -73,6 +68,9 @@ public class CsvReader {
     //================================================================================
     // property
     //================================================================================
+    public TreeMap<String, TextValue> getTextValueMap() {
+        return textValueMap;
+    }
 
     @Override
     public String toString() {

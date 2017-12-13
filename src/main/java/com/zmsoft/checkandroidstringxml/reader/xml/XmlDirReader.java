@@ -101,8 +101,12 @@ public class XmlDirReader {
     }
 
     //================================================================================
-    // toString
+    // property
     //================================================================================
+    public TreeMap<String, TextValue> getTextValueMap() {
+        return textValueMap;
+    }
+
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         for (Map.Entry<String, TextValue> entry : textValueMap.entrySet()) {
