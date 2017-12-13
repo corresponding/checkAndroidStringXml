@@ -1,14 +1,18 @@
-package com.zmsoft.checkandroidstringxml.reader;
+package com.zmsoft.checkandroidstringxml.reader.xml;
 
-import com.zmsoft.checkandroidstringxml.TextValue;
-import com.zmsoft.checkandroidstringxml.XmlConstant;
+import com.zmsoft.checkandroidstringxml.data.TextValue;
+import com.zmsoft.checkandroidstringxml.constant.XmlConstant;
 
 import java.io.File;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class DirReader {
+/**
+ * @author : corresponding
+ * @date : 2017/12/12 14:00.
+ */
+public class XmlDirReader {
 
 
     private File dirFile;
@@ -18,12 +22,12 @@ public class DirReader {
      */
     private TreeMap<String, TextValue> textValueMap;
 
-    public DirReader(String dirName) {
+    public XmlDirReader(String dirName) {
         dirFile = new File(dirName);
         textValueMap = new TreeMap<>(new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
-                return o2.compareTo(o1);
+                return o1.compareTo(o2);
             }
         });
         parseDir(dirFile);
@@ -68,7 +72,7 @@ public class DirReader {
             File subFile = subFileList[i];
             if (subFile.isDirectory()) {
                 String subFileName = subFile.getName();
-                if (subFileName.startsWith(XmlConstant.READER.VALUES_SUFFIX)) {
+                if (subFileName.startsWith(XmlConstant.READER.VALUES_DIR_SUFFIX)) {
                     parseValuesDir(subFile, subFileName);
                 }
             }
@@ -91,7 +95,7 @@ public class DirReader {
             }
             String subFileName = subFile.getName();
             if (XmlConstant.READER.STRING_FILE_NAME.equals(subFileName)) {
-                FileReader.parseXml(subFile, textValueMap, country);
+                XmlFileReader.parseXml(subFile, textValueMap, country);
             }
         }
     }

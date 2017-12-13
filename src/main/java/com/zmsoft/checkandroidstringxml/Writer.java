@@ -8,6 +8,10 @@ import org.dom4j.io.XMLWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * @author : corresponding
+ * @date : 2017/12/12 14:00.
+ */
 public class Writer {
 
     public static void createXml(String fileName) {

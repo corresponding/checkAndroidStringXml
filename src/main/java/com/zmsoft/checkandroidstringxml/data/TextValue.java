@@ -1,8 +1,12 @@
-package com.zmsoft.checkandroidstringxml;
+package com.zmsoft.checkandroidstringxml.data;
 
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author : corresponding
+ * @date : 2017/12/12 14:00.
+ */
 public class TextValue {
 
     /**

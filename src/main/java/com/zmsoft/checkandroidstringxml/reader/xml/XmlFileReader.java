@@ -1,7 +1,7 @@
-package com.zmsoft.checkandroidstringxml.reader;
+package com.zmsoft.checkandroidstringxml.reader.xml;
 
-import com.zmsoft.checkandroidstringxml.TextValue;
-import com.zmsoft.checkandroidstringxml.XmlConstant;
+import com.zmsoft.checkandroidstringxml.data.TextValue;
+import com.zmsoft.checkandroidstringxml.constant.XmlConstant;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -11,7 +11,11 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.Map;
 
-public class FileReader {
+/**
+ * @author : corresponding
+ * @date : 2017/12/12 14:00.
+ */
+public class XmlFileReader {
 
 
     /**
@@ -28,7 +32,7 @@ public class FileReader {
 
         for (Iterator i = rootElement.elementIterator(); i.hasNext(); ) {
             Element element = (Element) i.next();
-            String key = element.attributeValue(XmlConstant.ATTRIBUTE_KEY);
+            String key = element.attributeValue(XmlConstant.STRINGS_XML.ATTRIBUTE_KEY);
             String value = element.getText();
             if (!textValueMap.containsKey(key)) {
                 TextValue textValue = new TextValue();
