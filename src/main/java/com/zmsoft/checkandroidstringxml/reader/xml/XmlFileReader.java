@@ -22,9 +22,9 @@ public class XmlFileReader {
      *
      * @param inputXml
      * @param textValueMap
-     * @param country
+     * @param dirName
      */
-    public static void parseXml(File inputXml, Map<String, TextValue> textValueMap, String country) {
+    public static void parseXml(File inputXml, Map<String, TextValue> textValueMap, String dirName) {
         Element rootElement = getRootElement(inputXml);
         if (null == rootElement) {
             return;
@@ -36,11 +36,11 @@ public class XmlFileReader {
             String value = element.getText();
             if (!textValueMap.containsKey(key)) {
                 TextValue textValue = new TextValue();
-                textValue.put(country, value);
+                textValue.setValue(dirName, value);
                 textValueMap.put(key, textValue);
             } else {
                 TextValue textValue = textValueMap.get(key);
-                textValue.put(country, value);
+                textValue.setValue(dirName, value);
             }
         }
     }

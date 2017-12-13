@@ -1,7 +1,6 @@
 package com.zmsoft.checkandroidstringxml.data;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.zmsoft.checkandroidstringxml.constant.XmlConstant;
 
 /**
  * @author : corresponding
@@ -9,26 +8,27 @@ import java.util.Map;
  */
 public class TextValue {
 
-    /**
-     * ""           - > 登录
-     * "-zh-rTW"    - > 登錄
-     * "-en"        - > Login
-     */
-    Map<String, String> countryMap;
+    private String zh;  // 默认values
+    private String en;  // values-en
+    private String tw;  // values-zh-rTW
 
-    public TextValue() {
-        countryMap = new HashMap<>();
-    }
 
-    public void put(String country, String value) {
-        countryMap.put(country, value);
-    }
-
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (Map.Entry<String, String> entry : countryMap.entrySet()) {
-            stringBuilder.append("        " + entry.getKey() + " " + entry.getValue() + "\n");
+    public void setValue(String type, String value) {
+        if (XmlConstant.TEXT_VALUE.TYPE.ZH.equals(type)) {
+            zh = value;
+        } else if (XmlConstant.TEXT_VALUE.TYPE.TW.equals(type)) {
+            en = value;
+        } else if (XmlConstant.TEXT_VALUE.TYPE.EN.equals(type)) {
+            tw = value;
         }
-        return stringBuilder.toString();
+    }
+
+    @Override
+    public String toString() {
+        return "TextValue{" +
+                "zh='" + zh + '\'' +
+                ", en='" + en + '\'' +
+                ", tw='" + tw + '\'' +
+                '}' + '\n';
     }
 }
