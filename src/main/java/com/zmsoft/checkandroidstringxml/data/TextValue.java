@@ -8,17 +8,17 @@ import com.zmsoft.checkandroidstringxml.constant.XmlConstant;
  */
 public class TextValue {
 
-    private String zh;  // 默认values
+    private String zh;  // values, values-zh
     private String en;  // values-en
     private String tw;  // values-zh-rTW
 
 
     public void setValue(String type, String value) {
-        if (XmlConstant.TEXT_VALUE.TYPE.ZH.equals(type)) {
+        if (XmlConstant.TEXT_VALUE.TYPE.ZH_1.equals(type) || XmlConstant.TEXT_VALUE.TYPE.ZH_2.equals(type)) {
             zh = value;
-        } else if (XmlConstant.TEXT_VALUE.TYPE.TW.equals(type)) {
-            en = value;
         } else if (XmlConstant.TEXT_VALUE.TYPE.EN.equals(type)) {
+            en = value;
+        } else if (XmlConstant.TEXT_VALUE.TYPE.TW.equals(type)) {
             tw = value;
         }
     }

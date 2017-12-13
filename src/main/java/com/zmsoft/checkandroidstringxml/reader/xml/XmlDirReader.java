@@ -34,7 +34,7 @@ public class XmlDirReader {
     }
 
     //================================================================================
-    // build map
+    // parse
     //================================================================================
     private void parseDir(File dirFile) {
         if (!dirFile.isDirectory()) {
@@ -106,7 +106,7 @@ public class XmlDirReader {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         for (Map.Entry<String, TextValue> entry : textValueMap.entrySet()) {
-            stringBuilder.append(entry.getKey() + " " + entry.getValue().toString());
+            stringBuilder.append(entry.getKey()).append(" ").append(entry.getValue().toString());
         }
         return stringBuilder.toString();
     }
